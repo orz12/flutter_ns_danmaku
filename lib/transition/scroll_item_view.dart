@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ns_danmaku/danmaku_border_text.dart';
 
+import '../utils/border_color.dart';
+
 class ScrollItemView extends StatefulWidget {
   final String text;
   final Color color;
@@ -14,6 +16,7 @@ class ScrollItemView extends StatefulWidget {
   final double strokeWidth;
   final Function(String)? onComplete;
   final Function(AnimationController)? onCreated;
+  final bool isSend;
   const ScrollItemView({
     required this.text,
     this.fontSize = 16,
@@ -27,6 +30,7 @@ class ScrollItemView extends StatefulWidget {
     this.strokeWidth = 2.0,
     this.onComplete,
     this.onCreated,
+    this.isSend = false,
     required UniqueKey key,
   }) : super(key: key);
 
@@ -85,6 +89,7 @@ class _ScrollItemViewState extends State<ScrollItemView>
                 color: widget.color,
                 fontSize: widget.fontSize,
                 strokeWidth: widget.strokeWidth,
+                isSend: widget.isSend,
               )
             : Text(
                 widget.text,
@@ -93,6 +98,7 @@ class _ScrollItemViewState extends State<ScrollItemView>
                   fontSize: widget.fontSize,
                   letterSpacing: 2,
                   overflow: TextOverflow.visible,
+                  backgroundColor: widget.isSend ? getBorderColor(widget.color) : null
                 ),
               ),
       ),

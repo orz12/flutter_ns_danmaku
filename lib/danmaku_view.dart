@@ -186,6 +186,7 @@ class _DanmakuViewState extends State<DanmakuView> {
           _controllers.addAll({id: e});
         },
         key: key,
+        isSend: e.isSend,
       )
     });
   }
@@ -214,7 +215,6 @@ class _DanmakuViewState extends State<DanmakuView> {
       } else {
         _bottomIDs.add(id);
       }
-
       _positionWidgets.addAll({
         id: PositionItemView(
           key: key,
@@ -229,6 +229,7 @@ class _DanmakuViewState extends State<DanmakuView> {
           onCreated: (e) {
             _controllers.addAll({id: e});
           },
+          isSend: item.isSend,
         )
       });
     }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ns_danmaku/danmaku_border_text.dart';
 
+import '../utils/border_color.dart';
+
 class PositionItemView extends StatefulWidget {
   final String text;
   final Color color;
@@ -11,6 +13,7 @@ class PositionItemView extends StatefulWidget {
   final double strokeWidth;
   final Function(String)? onComplete;
   final Function(AnimationController)? onCreated;
+  final bool isSend;
   const PositionItemView({
     required this.text,
     this.fontSize = 16,
@@ -21,6 +24,7 @@ class PositionItemView extends StatefulWidget {
     this.strokeWidth = 2.0,
     this.onComplete,
     this.onCreated,
+    this.isSend = false,
     required UniqueKey key,
   }) : super(key: key);
 
@@ -94,6 +98,7 @@ class _PositionItemViewState extends State<PositionItemView>
                   color: widget.color,
                   fontSize: widget.fontSize,
                   strokeWidth: widget.strokeWidth,
+                  isSend: widget.isSend,
                 )
               : Text(
                   widget.text,
@@ -102,6 +107,7 @@ class _PositionItemViewState extends State<PositionItemView>
                     fontSize: widget.fontSize,
                     letterSpacing: 2,
                     overflow: TextOverflow.visible,
+                    backgroundColor: widget.isSend ? getBorderColor(widget.color) : null
                   ),
                 ),
         ),

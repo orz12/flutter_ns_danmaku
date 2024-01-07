@@ -11,10 +11,12 @@ class DanmakuItem {
   final Color color;
   final int time;
   final DanmakuItemType type;
+  final bool isSend;
   DanmakuItem(
     this.text, {
     this.color = Colors.white,
     this.time = 0,
     this.type = DanmakuItemType.scroll,
+    this.isSend = false
   });
 }

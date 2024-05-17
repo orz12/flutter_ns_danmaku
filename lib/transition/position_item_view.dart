@@ -7,6 +7,7 @@ class PositionItemView extends StatefulWidget {
   final String text;
   final Color color;
   final double fontSize;
+  final int fontWeight;
   final double y;
   final bool border;
   final bool isTop;
@@ -17,6 +18,7 @@ class PositionItemView extends StatefulWidget {
   const PositionItemView({
     required this.text,
     this.fontSize = 16,
+    this.fontWeight = 5,
     this.color = Colors.white,
     this.y = 0,
     this.border = true,
@@ -97,6 +99,7 @@ class _PositionItemViewState extends State<PositionItemView>
                   widget.text,
                   color: widget.color,
                   fontSize: widget.fontSize,
+                  fontWeight: widget.fontWeight,
                   strokeWidth: widget.strokeWidth,
                   isSend: widget.isSend,
                 )
@@ -105,6 +108,7 @@ class _PositionItemViewState extends State<PositionItemView>
                   style: TextStyle(
                     color: widget.color,
                     fontSize: widget.fontSize,
+                    fontWeight: FontWeight.values[widget.fontWeight],
                     letterSpacing: 2,
                     overflow: TextOverflow.visible,
                     backgroundColor: widget.isSend ? getBorderColor(widget.color) : null

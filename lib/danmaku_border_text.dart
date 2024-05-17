@@ -7,6 +7,7 @@ class DanmakuBorderText extends StatelessWidget {
   final TextAlign textAlign;
   final Color color;
   final double fontSize;
+  final int fontWeight;
   final double strokeWidth;
   final bool isSend;
   const DanmakuBorderText(
@@ -14,6 +15,7 @@ class DanmakuBorderText extends StatelessWidget {
     this.textAlign = TextAlign.left,
     this.color = Colors.white,
     this.fontSize = 16,
+        this.fontWeight = 5,
     this.strokeWidth = 2.0,
     this.isSend = false,
     Key? key,
@@ -29,6 +31,7 @@ class DanmakuBorderText extends StatelessWidget {
           textAlign: textAlign,
           style: TextStyle(
             fontSize: fontSize,
+            fontWeight: FontWeight.values[fontWeight],
             overflow: TextOverflow.visible,
             backgroundColor: isSend ? getBorderColor(color) : null,
             foreground: Paint()
@@ -45,6 +48,7 @@ class DanmakuBorderText extends StatelessWidget {
           textAlign: textAlign,
           style: TextStyle(
             fontSize: fontSize,
+            fontWeight: FontWeight.values[fontWeight],
             color: color,
             overflow: TextOverflow.visible,
           ),

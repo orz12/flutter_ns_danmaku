@@ -52,6 +52,7 @@ class _HomePageState extends State<HomePage> {
   double _opacity = 1.0;
   double _duration = 8;
   double _fontSize = (Platform.isIOS || Platform.isAndroid) ? 16 : 25;
+  int _fontWeight = 5;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -120,6 +121,7 @@ class _HomePageState extends State<HomePage> {
           fontSize: _fontSize,
           duration: _duration,
           borderText: _border,
+          fontWeight: _fontWeight,
         ),
         statusChanged: (e) {
           setState(() {

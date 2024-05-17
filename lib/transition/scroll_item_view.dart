@@ -7,6 +7,7 @@ class ScrollItemView extends StatefulWidget {
   final String text;
   final Color color;
   final double fontSize;
+  final int fontWeight;
   final double duration;
   final double y;
   final double begin;
@@ -20,6 +21,7 @@ class ScrollItemView extends StatefulWidget {
   const ScrollItemView({
     required this.text,
     this.fontSize = 16,
+    this.fontWeight = 5,
     this.duration = 10,
     this.color = Colors.white,
     this.y = 0,
@@ -88,6 +90,7 @@ class _ScrollItemViewState extends State<ScrollItemView>
                 widget.text,
                 color: widget.color,
                 fontSize: widget.fontSize,
+                fontWeight: widget.fontWeight,
                 strokeWidth: widget.strokeWidth,
                 isSend: widget.isSend,
               )
@@ -96,6 +99,7 @@ class _ScrollItemViewState extends State<ScrollItemView>
                 style: TextStyle(
                   color: widget.color,
                   fontSize: widget.fontSize,
+                  fontWeight: FontWeight.values[widget.fontWeight],
                   letterSpacing: 2,
                   overflow: TextOverflow.visible,
                   backgroundColor: widget.isSend ? getBorderColor(widget.color) : null

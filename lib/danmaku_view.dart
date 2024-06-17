@@ -469,31 +469,33 @@ class _DanmakuViewState extends State<DanmakuView> {
 
   /// 计算文本尺寸
   Size calculateTextSize(String value) {
-    //var letterSpacing = (fontSize / 20).ceil() * 2.0;
-    TextPainter painter = TextPainter(
-      locale: Localizations.localeOf(context),
-      maxLines: 1,
-      textDirection: TextDirection.ltr,
-      textScaleFactor: MediaQuery.of(context).textScaleFactor,
-      text: TextSpan(
-        text: value,
-        style: TextStyle(
-          fontSize: _option.fontSize,
-          fontWeight: FontWeight.values[_option.fontWeight],
-          // letterSpacing: letterSpacing,
-          overflow: TextOverflow.visible,
-          foreground: Paint()
-            ..style = PaintingStyle.stroke
-            ..strokeWidth = _option.strokeWidth
-            ..strokeCap = StrokeCap.round
-            ..strokeJoin = StrokeJoin.round
-            ..color = Colors.black,
-        ),
-      ),
-    );
-    painter.layout();
+    var letterSize = _option.fontSize * MediaQuery.of(context).textScaleFactor;
+    return Size(letterSize * value.length * 1.05, letterSize * 1.3);
+    // var letterSpacing = (fontSize / 20).ceil() * 2.0;
+    // TextPainter painter = TextPainter(
+    //   locale: Localizations.localeOf(context),
+    //   maxLines: 1,
+    //   textDirection: TextDirection.ltr,
+    //   textScaleFactor: MediaQuery.of(context).textScaleFactor,
+    //   text: TextSpan(
+    //     text: value,
+    //     style: TextStyle(
+    //       fontSize: _option.fontSize,
+    //       fontWeight: FontWeight.values[_option.fontWeight],
+    //       // letterSpacing: letterSpacing,
+    //       overflow: TextOverflow.visible,
+    //       foreground: Paint()
+    //         ..style = PaintingStyle.stroke
+    //         ..strokeWidth = _option.strokeWidth
+    //         ..strokeCap = StrokeCap.round
+    //         ..strokeJoin = StrokeJoin.round
+    //         ..color = Colors.black,
+    //     ),
+    //   ),
+    // );
+    // painter.layout();
 
-    return Size(painter.width, painter.height);
+    // return Size(painter.width, painter.height);
   }
 }
 
